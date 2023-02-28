@@ -22,12 +22,12 @@ class Character:
                 f'{value_attack}')
 
     def defence(self):
-        value_deffence = DEFAULT_DEFENCE + randint(*self.RANGE_VALUE_DEFENCE)
+        value_defence = DEFAULT_DEFENCE + randint(*self.RANGE_VALUE_DEFENCE)
         return (f'{self.name} блокировал {value_defence} ед. урона.')
 
     def special(self):
         return (f'{self.name} применил специальное умение '
-                f'"{self.SPECIAL_SKIll} {self.SPECIAL_BUFF}".')
+                f'"{self.SPECIAL_SKILL} {self.SPECIAL_BUFF}".')
 
     def __str__(self):
         return f'{self.__class__.__name__} - {self.BRIEF_DESC_CHAR_CLASS}.'
@@ -60,8 +60,8 @@ class Healer(Character):
 
 
     warrior = Warrior('Кодослав')
-print(warrior)
-print(warrior.attack())
+ #   print(warrior)
+ #x   print(warrior.attack())
 
 
 def choice_char_class(char_name: str) -> Character:
@@ -106,8 +106,8 @@ def start_training(character):
     cmd = None
     while cmd != 'skip':
         cmd = input('Введи команду: ')
-        if cmd in commands:
-            print(commands[cmd]())
+        if cmd in comands:
+            print(comands[cmd]())
     return 'Тренировка окончена.'
 
 
@@ -121,5 +121,5 @@ if __name__ == '__main__':
           'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
-    char_class: str = choice_char_class()
-    print(start_training(char_name, char_class))
+    char_class: str = choice_char_class(char_name)
+    print(start_training(char_class))
